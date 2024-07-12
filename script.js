@@ -1,34 +1,20 @@
 //your JS code here. If required.
-let sq1 = document.getElementById('square1')
-let sq2 = document.getElementById('square2')
-let sq3 = document.getElementById('square3')
-sq1.addEventListener('mouseenter',() => {
-	document.getElementById('square2').style.background='rgb(111, 78, 55)'
-	document.getElementById('square3').style.background='rgb(111, 78, 55)'
-})
+        document.addEventListener('DOMContentLoaded', function() {
+            const squares = document.querySelectorAll('.square');
 
-sq1.addEventListener('mouseleave',() => {
-	document.getElementById('square2').style.background='rgb(230, 230, 250)'
-	document.getElementById('square3').style.background='rgb(230, 230, 250)'
-})
+            squares.forEach((square, index) => {
+                square.addEventListener('mouseenter', () => {
+                    squares.forEach((sq, i) => {
+                        if (i !== index) {
+                            sq.style.backgroundColor = '#6F4E37'; // Coffee
+                        }
+                    });
+                });
 
-sq2.addEventListener('mouseenter',() => {
-	document.getElementById('square1').style.background='rgb(111, 78, 55)'
-	document.getElementById('square3').style.background='rgb(111, 78, 55)'
-})
-
-sq2.addEventListener('mouseleave',() => {
-	document.getElementById('square1').style.background='rgb(230, 230, 250)' 
-	document.getElementById('square3').style.background='rgb(230, 230, 250)' 
-})
-
-sq3.addEventListener('mouseenter',() => {
-	document.getElementById('square1').style.background='rgb(111, 78, 55)'
-	document.getElementById('square2').style.background='rgb(111, 78, 55)'
-})
-
-sq3.addEventListener('mouseleave',() => {
-	document.getElementById('square1').style.background='rgb(230, 230, 250)'
-	document.getElementById('square2').style.background='rgb(230, 230, 250)'
-})
-
+                square.addEventListener('mouseleave', () => {
+                    squares.forEach(sq => {
+                        sq.style.backgroundColor = '#E6E6FA'; // Lavender
+                    });
+                });
+            });
+        });
